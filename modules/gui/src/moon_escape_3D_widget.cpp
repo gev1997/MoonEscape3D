@@ -1,0 +1,62 @@
+// project
+#include "moon_escape_3D_widget.h"
+
+// third party
+
+// std
+
+gui::moon_escape_3D_widget::moon_escape_3D_widget(QWidget* parent)
+    : QOpenGLWidget{parent}
+{}
+
+gui::moon_escape_3D_widget::~moon_escape_3D_widget()
+{
+    makeCurrent();
+    doneCurrent();
+}
+
+void gui::moon_escape_3D_widget::init()
+{
+    setFocusPolicy(Qt::StrongFocus);
+}
+
+void gui::moon_escape_3D_widget::initializeGL()
+{
+    initializeOpenGLFunctions();
+    init();
+    
+    glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
+    glEnable(GL_DEPTH_TEST);
+    // glEnable(GL_CULL_FACE);
+    // glCullFace(GL_BACK);
+}
+
+void gui::moon_escape_3D_widget::resizeGL(int width, int height)
+{
+    glViewport(0, 0, width, height);
+}
+
+void gui::moon_escape_3D_widget::paintGL()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void gui::moon_escape_3D_widget::mousePressEvent(QMouseEvent* event)
+{
+    update();
+}
+
+void gui::moon_escape_3D_widget::mouseMoveEvent(QMouseEvent* event)
+{
+    update();
+}
+
+void gui::moon_escape_3D_widget::wheelEvent(QWheelEvent* event)
+{
+    update();
+}
+
+void gui::moon_escape_3D_widget::keyPressEvent(QKeyEvent* event)
+{
+    update();
+}
