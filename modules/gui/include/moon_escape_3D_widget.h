@@ -32,4 +32,5 @@ protected:
 
 private:
     std::unique_ptr<camera> m_camera;
+    std::unique_ptr<renderer> m_renderer;
 };
