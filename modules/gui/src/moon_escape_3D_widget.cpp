@@ -18,6 +18,8 @@ gui::moon_escape_3D_widget::~moon_escape_3D_widget()
 void gui::moon_escape_3D_widget::init()
 {
     setFocusPolicy(Qt::StrongFocus);
+
+    m_camera = std::make_unique<camera>();
 }
 
 void gui::moon_escape_3D_widget::initializeGL()
@@ -34,6 +36,7 @@ void gui::moon_escape_3D_widget::initializeGL()
 void gui::moon_escape_3D_widget::resizeGL(int width, int height)
 {
     glViewport(0, 0, width, height);
+    m_camera->window_resized(width, height);
 }
 
 void gui::moon_escape_3D_widget::paintGL()
@@ -43,20 +46,24 @@ void gui::moon_escape_3D_widget::paintGL()
 
 void gui::moon_escape_3D_widget::mousePressEvent(QMouseEvent* event)
 {
+    m_camera->mouse_press(event);
     update();
 }
 
 void gui::moon_escape_3D_widget::mouseMoveEvent(QMouseEvent* event)
 {
+    m_camera->mouse_move(event);
     update();
 }
 
 void gui::moon_escape_3D_widget::wheelEvent(QWheelEvent* event)
 {
+    m_camera->mouse_wheel(event);
     update();
 }
 
 void gui::moon_escape_3D_widget::keyPressEvent(QKeyEvent* event)
 {
+    m_camera->key_press(event);
     update();
 }
