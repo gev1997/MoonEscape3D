@@ -11,13 +11,15 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_AUTOMOC ON)
 
 include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/modules/gui/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/gui/core/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/gui/namespace
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/utils/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/utils/namespace
 )
 
 file(GLOB_RECURSE SOURCES
     modules/entry_point/main.cpp
-    modules/gui/src/*.cpp
+    modules/gui/core/src/*.cpp
     modules/utils/src/*.cpp
 )
 
@@ -26,7 +28,7 @@ find_package(Qt6OpenGLWidgets CONFIG REQUIRED)
 find_package(Eigen3 REQUIRED)
 
 add_executable(MoonEscape3D
-    ${CMAKE_CURRENT_SOURCE_DIR}/modules/gui/include/moon_escape_3D_widget.h # important for AUTOMOC
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/gui/core/include/moon_escape_3D_widget.h # important for AUTOMOC
     ${SOURCES}
 )
 
