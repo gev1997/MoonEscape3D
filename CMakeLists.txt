@@ -12,6 +12,7 @@ set(CMAKE_AUTOMOC ON)
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/gui/core/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/gui/mesh/include
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/gui/namespace
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/utils/include
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/utils/namespace
@@ -20,6 +21,7 @@ include_directories(
 file(GLOB_RECURSE SOURCES
     modules/entry_point/main.cpp
     modules/gui/core/src/*.cpp
+    modules/gui/mesh/src/*.cpp
     modules/utils/src/*.cpp
 )
 
