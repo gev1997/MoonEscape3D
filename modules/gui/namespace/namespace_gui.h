@@ -25,6 +25,7 @@ class object_base;
 class ball;
 class player_ball;
 class moon;
+class axis;
 class factory;
 
 }; // namespace mesh

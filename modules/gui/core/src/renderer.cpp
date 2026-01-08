@@ -13,6 +13,7 @@ gui::renderer::renderer()
     m_shader_prog = std::make_unique<shader_program>();
     m_meshes.push_back(mesh::factory::create(mesh::object_type::PlayerBall));
     m_meshes.push_back(mesh::factory::create(mesh::object_type::Moon));
+    m_meshes.push_back(mesh::factory::create(mesh::object_type::Axis));
 }
 
 void gui::renderer::init()
@@ -44,8 +45,8 @@ void gui::renderer::draw(const std::unique_ptr<camera>& camera)
 
 void gui::renderer::_init_shaders()
 {
-    m_shader_prog->addShaderFromSourceFile(QOpenGLShader::Vertex, "D:\\Project\\MoonEscape3D\\shaders\\basic\\vertex.glsl");
-    m_shader_prog->addShaderFromSourceFile(QOpenGLShader::Fragment, "D:\\Project\\MoonEscape3D\\shaders\\basic\\fragment.glsl");
+    m_shader_prog->addShaderFromSourceFile(QOpenGLShader::Vertex, "C:\\Project\\MoonEscape3D\\shaders\\basic\\vertex.glsl");
+    m_shader_prog->addShaderFromSourceFile(QOpenGLShader::Fragment, "C:\\Project\\MoonEscape3D\\shaders\\basic\\fragment.glsl");
     m_shader_prog->link();
 }
 

@@ -44,16 +44,16 @@ set_target_properties(MoonEscape3D PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 )
 
-if (WIN32)
-    # Path to windeployqt (vcpkg)
-    set(WINDEPLOYQT_EXECUTABLE "$ENV{VCPKG_DIR}/installed/${VCPKG_TARGET_TRIPLET}/tools/Qt6/bin/windeployqt.exe")
+# if (WIN32)
+#     # Path to windeployqt (vcpkg)
+#     set(WINDEPLOYQT_EXECUTABLE "$ENV{VCPKG_DIR}/installed/${VCPKG_TARGET_TRIPLET}/tools/Qt6/bin/windeployqt.exe")
 
-    if (EXISTS "${WINDEPLOYQT_EXECUTABLE}")
-        add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-            COMMAND "${WINDEPLOYQT_EXECUTABLE}" "$<TARGET_FILE:MoonEscape3D>"
-            COMMENT "Running windeployqt for MoonEscape3D"
-        )
-    else()
-        message(WARNING "windeployqt not found: ${WINDEPLOYQT_EXECUTABLE}")
-    endif()
-endif()
+#     if (EXISTS "${WINDEPLOYQT_EXECUTABLE}")
+#         add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+#             COMMAND "${WINDEPLOYQT_EXECUTABLE}" "$<TARGET_FILE:MoonEscape3D>"
+#             COMMENT "Running windeployqt for MoonEscape3D"
+#         )
+#     else()
+#         message(WARNING "windeployqt not found: ${WINDEPLOYQT_EXECUTABLE}")
+#     endif()
+# endif()
