@@ -12,7 +12,7 @@ void gui::mesh::moon::draw(std::unique_ptr<gui::shader_program>& shader_prog, co
 {
     QOpenGLVertexArrayObject::Binder binder(&m_VAO);
 
-    auto model_matrix = transform;        
+    const Eigen::Matrix4f model_matrix = Eigen::Matrix4f::Identity();
     // model_matrix(0, 3) -= 2.0f;
     shader_prog->setUniformValue("model", utils::eigen_to_qmatrix(model_matrix));
 
