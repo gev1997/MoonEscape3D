@@ -10,6 +10,15 @@
 
 // std
 
+class gui::mesh::axis : public gui::mesh::object_base
+{
+public:
+    axis();
+    virtual ~axis() = default;
+
+    void draw(std::unique_ptr<gui::shader_program>& shader_prog, const Eigen::Matrix4f& transform) override;
+};
+
 class gui::mesh::moon : public gui::mesh::ball
 {
 public:
