@@ -11,7 +11,8 @@
 enum class gui::mesh::object_type
 {
     PlayerBall,
-    Moon
+    Moon,
+    Axis
 };
 
 struct gui::mesh::factory

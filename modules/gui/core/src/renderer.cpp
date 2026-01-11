@@ -14,6 +14,7 @@ gui::renderer::renderer()
     m_shader_prog = std::make_unique<shader_program>();
     m_meshes.push_back(mesh::factory::create(mesh::object_type::PlayerBall));
     m_meshes.push_back(mesh::factory::create(mesh::object_type::Moon));
+    m_meshes.push_back(mesh::factory::create(mesh::object_type::Axis));
 }
 
 void gui::renderer::init()
