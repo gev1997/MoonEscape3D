@@ -28,7 +28,6 @@ void gui::moon_escape_3D_widget::initializeGL()
     initializeOpenGLFunctions();
     init();
     
-    glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
     glEnable(GL_DEPTH_TEST);
     // glEnable(GL_CULL_FACE);
     // glCullFace(GL_BACK);

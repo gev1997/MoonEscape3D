@@ -5,6 +5,7 @@
 #include "factory.h"
 
 // third party
+#include <QOpenGLFunctions>
 
 // std
 
@@ -24,6 +25,9 @@ void gui::renderer::init()
 void gui::renderer::draw(const std::unique_ptr<camera>& camera)
 {
     shader_program::binder binder(m_shader_prog.get());
+
+    QOpenGLFunctions* gl_functions = QOpenGLContext::currentContext()->functions();
+    gl_functions->glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 
     const auto projection = utils::eigen_to_qmatrix(camera->get_projection_matrix());
     const auto view = utils::eigen_to_qmatrix(camera->get_view_matrix());
