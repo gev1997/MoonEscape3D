@@ -2,6 +2,7 @@
 
 // project
 #include "ball.h"
+#include "utils.h"
 
 // third party
 
@@ -24,7 +25,8 @@ gui::mesh::ball::ball()
             const GLfloat y = radius * cos(phi);  // Y is up
             const GLfloat z = radius * sin(phi) * sin(theta);
             
-            m_vertices.insert(m_vertices.end(), {x, y, z});
+            const Eigen::Vector3f vertex{x, y, z};
+            utils::vertex_push_back(m_vertices, vertex);
         }
     }
 
