@@ -7,11 +7,12 @@
 
 // third party
 #include <QOpenGLWidget>
-#include <QOpenGLFunctions>
+// #include <QOpenGLFunctions>
+#include <QOpenGLFunctions_3_3_Core>
 
 // std
 
-class gui::moon_escape_3D_widget final : public QOpenGLWidget, protected QOpenGLFunctions
+class gui::moon_escape_3D_widget final : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 {
     Q_OBJECT
 

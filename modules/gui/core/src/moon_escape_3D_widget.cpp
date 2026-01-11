@@ -19,6 +19,7 @@ void gui::moon_escape_3D_widget::init()
 {
     setFocusPolicy(Qt::StrongFocus);
 
+    // TODO: maybe we want to make camera global singletoon object ?
     m_camera = std::make_unique<camera>();
     m_renderer = std::make_unique<renderer>();
 }
@@ -28,10 +29,14 @@ void gui::moon_escape_3D_widget::initializeGL()
     initializeOpenGLFunctions();
     init();
     
-    glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
     glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+
+    // glEnable(GL_DEPTH_CLAMP);
     // glEnable(GL_CULL_FACE);
     // glCullFace(GL_BACK);
+
+    // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
     m_renderer->init();
 }
