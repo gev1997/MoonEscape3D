@@ -14,7 +14,7 @@ gui::mesh::ball::ball()
     const GLfloat radius = 1.0f;
 
     for (GLuint ring = 0; ring <= rings; ++ring) {
-        const GLfloat phi = static_cast<GLfloat>(ring) / rings * M_PI;
+        const GLfloat phi = (static_cast<GLfloat>(ring) / rings) * M_PI;
         
         for (GLuint segment = 0; segment <= segments; ++segment) {
             const GLfloat theta = static_cast<GLfloat>(segment) / segments * 2.0f * M_PI;
